@@ -20,7 +20,7 @@ app.post('/api/createUser', jsonParser, (req, res) => {
 	return res
 		.cookie('accessToken', token, {
 			httpOnly: true
-	})
+		})
 		.status(200)
 		.json({
 			'message': `Logged in as ${req.body.username}`

@@ -16,10 +16,10 @@ export const authenticateToken = (req, res, next) => {
 	const token = req.cookies['accessToken']
 	if (!token) return res.sendStatus(401)
 
-	jwt.verify(token, secret, {},(err, user) =>{
+	jwt.verify(token, secret, {}, (err, user) => {
 		// console.error(err)
 
-		if(err) return res.sendStatus(403)
+		if (err) return res.sendStatus(403)
 
 		req.user = user
 
