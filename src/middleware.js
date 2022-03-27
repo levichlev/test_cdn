@@ -9,7 +9,9 @@ const secret = process.env.TOKEN_SECRET
 export const apiRouter = express.Router()
 
 export const generateAccessToken = (username) => {
-	return jwt.sign({username}, secret, {expiresIn: '1800s'})
+	return jwt.sign({username}, secret, {expiresIn: '1800s'}, (err) => {
+		if (err) console.error(err)
+	})
 }
 
 export const authenticateToken = (req, res, next) => {
